@@ -1,0 +1,18 @@
+---
+import { Counter } from '@components/Counter';
+import { FavoritePokemons } from '@components/pokemons/FavoritePokemons';
+import Title from '@components/shared/Title.astro';
+import MainLayout from 'src/layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <Title>Pokemons Favoritos</Title>
+  <!-- <Counter client:visible initValue={15} transition:persist-props />
+  <video controls="" autoplay="" transition:persist>
+    <source
+      src="https://ia804502.us.archive.org/33/items/GoldenGa1939_3/GoldenGa1939_3_512kb.mp4"
+      type="video/mp4"
+    />
+  </video> -->
+  <FavoritePokemons client:only="solid.js" />
+</MainLayout>

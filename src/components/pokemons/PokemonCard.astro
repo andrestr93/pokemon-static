@@ -1,0 +1,27 @@
+---
+import Title from '@components/shared/Title.astro';
+
+interface Props {
+  url: string;
+  name: string;
+}
+
+const { name, url } = Astro.props;
+const id = url.split('/').at(-2);
+const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+---
+
+<!-- class={`rounded  flex flex-col justify-center items-center p-2 ${!isBig && 'border'}`} --><!-- href={`/pokemons/${name}`} --><!-- href={`/pokemon/${id}`} -->
+<a
+  href={`/pokemons/${name}`}
+  class:list={[` flex flex-col justify-center items-center p-2`]}
+>
+  <!-- w-26 h-26 isBig -->
+  <!-- w-16 h-16 !isBig -->
+  <img transition:name={`${name}-image`} src={imageSrc} alt={name} />
+
+  <!-- text-3xl -->
+  <span class="text-fuchsia-50 font-bold font-mono text-2xl w-full gap-1 flex"
+    >#{id} <Title>{name}</Title></span
+  >
+</a>
